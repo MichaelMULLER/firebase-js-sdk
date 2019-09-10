@@ -164,7 +164,7 @@ describeSpec('Limits:', [], () => {
     );
     const limitQuery = Query.atPath(path('collection'))
       .addFilter(filter('matches', '==', true))
-      .withLimit(2);
+      .withLimitToFirst(2);
     const doc1 = doc('collection/a', 1001, { matches: true });
     const doc2 = doc('collection/b', 1002, { matches: true });
     const doc3 = doc('collection/c', 1000, { matches: true });
@@ -195,7 +195,7 @@ describeSpec('Limits:', [], () => {
       );
       const limitQuery = Query.atPath(path('collection'))
         .addFilter(filter('matches', '==', true))
-        .withLimit(2);
+        .withLimitToFirst(2);
       const doc1 = doc('collection/a', 1001, { matches: true });
       const doc2 = doc('collection/b', 1002, { matches: true });
       const doc3 = doc('collection/c', 1003, { matches: true });
@@ -227,7 +227,7 @@ describeSpec('Limits:', [], () => {
       const fullQuery = Query.atPath(path('collection'));
       const limitQuery = Query.atPath(path('collection'))
         .addOrderBy(orderBy('pos'))
-        .withLimit(2);
+        .withLimitToFirst(2);
       const doc1 = doc('collection/a', 1001, { pos: 1 });
       const doc2 = doc('collection/b', 1002, { pos: 2 });
       const doc3 = doc('collection/c', 1003, { pos: 3 });
@@ -260,7 +260,7 @@ describeSpec('Limits:', [], () => {
       const fullQuery = Query.atPath(path('collection'));
       const limitQuery = Query.atPath(path('collection'))
         .addOrderBy(orderBy('pos'))
-        .withLimit(2);
+        .withLimitToFirst(2);
       const doc1 = doc('collection/a', 1001, { pos: 1 });
       const doc1Edited = doc('collection/a', 1005, { pos: 4 });
       const doc2 = doc('collection/b', 1002, { pos: 2 });
@@ -296,7 +296,7 @@ describeSpec('Limits:', [], () => {
 
       const limitQuery = Query.atPath(path('collection'))
         .addOrderBy(orderBy('a'))
-        .withLimit(1);
+        .withLimitToFirst(1);
       const fullQuery = Query.atPath(path('collection')).addOrderBy(
         orderBy('a')
       );
@@ -372,7 +372,7 @@ describeSpec('Limits:', [], () => {
 
     const limitQuery = Query.atPath(path('collection'))
       .addOrderBy(orderBy('a'))
-      .withLimit(1);
+      .withLimitToFirst(1);
     const fullQuery = Query.atPath(path('collection')).addOrderBy(orderBy('a'));
 
     const firstDocument = doc('collection/a', 2001, { a: 1 });

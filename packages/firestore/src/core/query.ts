@@ -156,6 +156,7 @@ export class Query {
   withLimitToFirst(limit: number | null): Query {
     return new Query(
       this.path,
+      this.collectionGroup,
       this.explicitOrderBy.slice(),
       this.filters.slice(),
       limit,
@@ -217,6 +218,7 @@ export class Query {
       this.explicitOrderBy.slice(),
       this.filters.slice(),
       this.limit,
+      this.limitType,
       this.startAt,
       this.endAt
     );
@@ -441,6 +443,7 @@ export class Query {
       // Now return as a LimitType.First query.
       return new Query(
         this.path,
+        this.collectionGroup,
         orderBys,
         this.filters,
         this.limit,
@@ -575,7 +578,7 @@ export class FieldFilter extends Filter {
   /**
    * Creates a filter based on the provided arguments.
    */
-  static create(mikelehen/limitToLast
+  static create(
     field: FieldPath,
     op: Operator,
     value: FieldValue
